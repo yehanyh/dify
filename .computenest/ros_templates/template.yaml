@@ -737,7 +737,6 @@ Resources:
 
             # 在Docker Compose启动前执行此命令片段，命令中可以引用参数
             echo "before docker compose starts"
-            # ${AdminPassword}在用户实际部署时填写，/home/admin/application/docker-compose.yaml为固定路径，无需修改
             systemctl start docker-compose-app
             sleep 10
             # 在Docker Compose启动后执行此命令片段，命令中可以引用参数
