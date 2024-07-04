@@ -165,16 +165,14 @@ Resources:
             # 源代码通过computenest-cli被打包为tar.gz包，并发布为部署物
             wget '{{ computenest::file::Alicloud-ComputeNest_dify }}' -O Alicloud-ComputeNest_dify.tar.gz
             tar -zxvf Alicloud-ComputeNest_dify.tar.gz && cd "$(tar -tzf Alicloud-ComputeNest_dify.tar.gz | head -1 | awk -F'/' '{print $1}')"
-            echo "start run command"
-            
             yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
             yum makecache fast
             yum -y install docker-ce jq
             systemctl enable docker
             systemctl start docker
             
-            cd docker/
-            docker-compose up .
+            cd docker
+            docker compose up
 
             ARGUS_VERSION=3.5.7 /bin/bash -c "$(curl -sS https://cms-agent-${RegionId}.oss-${RegionId}-internal.aliyuncs.com/Argus/agent_install_ecs-1.7.sh)" >> /root/install_cms_agent.log 2>&1
           - RegionId:

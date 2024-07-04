@@ -14,6 +14,8 @@ Service:
           - cn-hangzhou
           - cn-shanghai
           - cn-beijing
+          - cn-hongkong
+          - ap-southeast-1
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
