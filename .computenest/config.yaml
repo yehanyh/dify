@@ -2,6 +2,11 @@ Service:
   RegionId: cn-hangzhou
   DeployType: ros
   DeployMetadata:
+    SupplierDeployMetadata:
+      FileArtifactRelation:
+        '{{ computenest::file::Alicloud-ComputeNest_dify }}':
+          ArtifactId: ${Artifact.Artifact_1.ArtifactId}
+          ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
     TemplateConfigs:
       - Name: 单机版
         Url: 'ros_templates/template.yaml'
@@ -12,5 +17,12 @@ Service:
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
-    ShortDescription: docker compose deploy
+    ShortDescription: demo
     Image: 'resources/icons/service_logo.png'
+Artifact:
+  Artifact_1:
+    ArtifactType: File
+    ArtifactName: Alicloud-ComputeNest_dify
+    ArtifactProperty:
+      RegionId: cn-hangzhou
+      Url: 'resources/artifact_resources/file/Alicloud-ComputeNest_dify.tar.gz'
