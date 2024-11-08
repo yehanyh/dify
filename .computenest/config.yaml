@@ -1,10 +1,18 @@
 Service:
   RegionId: cn-hangzhou
   DeployType: ros
+  OperationMetadata:
+    StatusOperationConfigs:
+      - TemplateName: '单机版'
+        SupportOperations:
+          - Start
+          - Stop
+          - Restart
+    SupportBackup: true
   DeployMetadata:
     SupplierDeployMetadata:
       FileArtifactRelation:
-        '{{ computenest::file::Alicloud-ComputeNest_dify }}':
+        '{{ computenest::file::Alicloud-ComputeNest_dify-docker-compose }}':
           ArtifactId: ${Artifact.Artifact_1.ArtifactId}
           ArtifactVersion: ${Artifact.Artifact_1.ArtifactVersion}
     TemplateConfigs:
@@ -14,17 +22,244 @@ Service:
           - cn-hangzhou
           - cn-shanghai
           - cn-beijing
-          - cn-hongkong
-          - ap-southeast-1
   ServiceType: private
   ServiceInfo:
     Locale: zh-CN
-    ShortDescription: demo
+    ShortDescription: docker compose deploy
     Image: 'resources/icons/service_logo.png'
 Artifact:
   Artifact_1:
     ArtifactType: File
-    ArtifactName: Alicloud-ComputeNest_dify
+    ArtifactName: Alicloud-ComputeNest_dify-docker-compose
     ArtifactProperty:
       RegionId: cn-hangzhou
-      Url: 'resources/artifact_resources/file/Alicloud-ComputeNest_dify.tar.gz'
+      Url: 'resources/artifact_resources/docker_compose.tar'
+  Artifact_2:
+    ArtifactType: AcrImage
+    ArtifactName: langgenius-dify-api
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_1.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_1.Tag}
+      RepoType: Public
+  Artifact_3:
+    ArtifactType: AcrImage
+    ArtifactName: langgenius-dify-api
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_2.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_2.Tag}
+      RepoType: Public
+  Artifact_4:
+    ArtifactType: AcrImage
+    ArtifactName: langgenius-dify-web
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_3.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_3.Tag}
+      RepoType: Public
+  Artifact_5:
+    ArtifactType: AcrImage
+    ArtifactName: postgres
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_4.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_4.Tag}
+      RepoType: Public
+  Artifact_6:
+    ArtifactType: AcrImage
+    ArtifactName: redis
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_5.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_5.Tag}
+      RepoType: Public
+  Artifact_7:
+    ArtifactType: AcrImage
+    ArtifactName: langgenius-dify-sandbox
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_6.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_6.Tag}
+      RepoType: Public
+  Artifact_8:
+    ArtifactType: AcrImage
+    ArtifactName: ubuntu-squid
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_7.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_7.Tag}
+      RepoType: Public
+  Artifact_9:
+    ArtifactType: AcrImage
+    ArtifactName: nginx
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_8.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_8.Tag}
+      RepoType: Public
+  Artifact_10:
+    ArtifactType: AcrImage
+    ArtifactName: semitechnologies-weaviate
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_9.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_9.Tag}
+      RepoType: Public
+  Artifact_11:
+    ArtifactType: AcrImage
+    ArtifactName: langgenius-qdrant
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_10.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_10.Tag}
+      RepoType: Public
+  Artifact_12:
+    ArtifactType: AcrImage
+    ArtifactName: pgvector-pgvector
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_11.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_11.Tag}
+      RepoType: Public
+  Artifact_13:
+    ArtifactType: AcrImage
+    ArtifactName: tensorchord-pgvecto-rs
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_12.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_12.Tag}
+      RepoType: Public
+  Artifact_14:
+    ArtifactType: AcrImage
+    ArtifactName: chroma-core-chroma
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_13.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_13.Tag}
+      RepoType: Public
+  Artifact_15:
+    ArtifactType: AcrImage
+    ArtifactName: database-free
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_14.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_14.Tag}
+      RepoType: Public
+  Artifact_16:
+    ArtifactType: AcrImage
+    ArtifactName: coreos-etcd
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_15.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_15.Tag}
+      RepoType: Public
+  Artifact_17:
+    ArtifactType: AcrImage
+    ArtifactName: minio-minio
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_16.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_16.Tag}
+      RepoType: Public
+  Artifact_18:
+    ArtifactType: AcrImage
+    ArtifactName: milvusdb-milvus
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_17.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_17.Tag}
+      RepoType: Public
+  Artifact_19:
+    ArtifactType: AcrImage
+    ArtifactName: opensearchproject-opensearch
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_18.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_18.Tag}
+      RepoType: Public
+  Artifact_20:
+    ArtifactType: AcrImage
+    ArtifactName: opensearchproject-opensearch-dashboards
+    ArtifactProperty:
+      RepoName: ${AcrImageBuilder.AcrImage_19.RepoName}
+      Tag: ${AcrImageBuilder.AcrImage_19.Tag}
+      RepoType: Public
+AcrImageBuilder:
+  AcrImage_1:
+    BuildType: DockerRepo
+    DockerRepoUrl: langgenius/dify-api:0.6.12-fix1
+    RepoName: langgenius/dify-api
+    Tag: 0.6.12-fix1
+  AcrImage_2:
+    BuildType: DockerRepo
+    DockerRepoUrl: langgenius/dify-api:0.6.12-fix1
+    RepoName: langgenius/dify-api
+    Tag: 0.6.12-fix1
+  AcrImage_3:
+    BuildType: DockerRepo
+    DockerRepoUrl: langgenius/dify-web:0.6.12-fix1
+    RepoName: langgenius/dify-web
+    Tag: 0.6.12-fix1
+  AcrImage_4:
+    BuildType: DockerRepo
+    DockerRepoUrl: postgres:15-alpine
+    RepoName: postgres
+    Tag: 15-alpine
+  AcrImage_5:
+    BuildType: DockerRepo
+    DockerRepoUrl: redis:6-alpine
+    RepoName: redis
+    Tag: 6-alpine
+  AcrImage_6:
+    BuildType: DockerRepo
+    DockerRepoUrl: langgenius/dify-sandbox:0.2.1
+    RepoName: langgenius/dify-sandbox
+    Tag: 0.2.1
+  AcrImage_7:
+    BuildType: DockerRepo
+    DockerRepoUrl: ubuntu/squid:latest
+    RepoName: ubuntu/squid
+    Tag: latest
+  AcrImage_8:
+    BuildType: DockerRepo
+    DockerRepoUrl: nginx:latest
+    RepoName: nginx
+    Tag: latest
+  AcrImage_9:
+    BuildType: DockerRepo
+    DockerRepoUrl: semitechnologies/weaviate:1.19.0
+    RepoName: semitechnologies/weaviate
+    Tag: 1.19.0
+  AcrImage_10:
+    BuildType: DockerRepo
+    DockerRepoUrl: langgenius/qdrant:v1.7.3
+    RepoName: langgenius/qdrant
+    Tag: v1.7.3
+  AcrImage_11:
+    BuildType: DockerRepo
+    DockerRepoUrl: pgvector/pgvector:pg16
+    RepoName: pgvector/pgvector
+    Tag: pg16
+  AcrImage_12:
+    BuildType: DockerRepo
+    DockerRepoUrl: tensorchord/pgvecto-rs:pg16-v0.2.0
+    RepoName: tensorchord/pgvecto-rs
+    Tag: pg16-v0.2.0
+  AcrImage_13:
+    BuildType: DockerRepo
+    DockerRepoUrl: ghcr.io/chroma-core/chroma:0.5.1
+    RepoName: chroma-core/chroma
+    Tag: 0.5.1
+  AcrImage_14:
+    BuildType: DockerRepo
+    DockerRepoUrl: container-registry.oracle.com/database/free:latest
+    RepoName: database/free
+    Tag: latest
+  AcrImage_15:
+    BuildType: DockerRepo
+    DockerRepoUrl: quay.io/coreos/etcd:v3.5.5
+    RepoName: coreos/etcd
+    Tag: v3.5.5
+  AcrImage_16:
+    BuildType: DockerRepo
+    DockerRepoUrl: minio/minio:RELEASE.2023-03-20T20-16-18Z
+    RepoName: minio/minio
+    Tag: RELEASE.2023-03-20T20-16-18Z
+  AcrImage_17:
+    BuildType: DockerRepo
+    DockerRepoUrl: milvusdb/milvus:v2.3.1
+    RepoName: milvusdb/milvus
+    Tag: v2.3.1
+  AcrImage_18:
+    BuildType: DockerRepo
+    DockerRepoUrl: opensearchproject/opensearch:latest
+    RepoName: opensearchproject/opensearch
+    Tag: latest
+  AcrImage_19:
+    BuildType: DockerRepo
+    DockerRepoUrl: opensearchproject/opensearch-dashboards:latest
+    RepoName: opensearchproject/opensearch-dashboards
+    Tag: latest
