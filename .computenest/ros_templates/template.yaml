@@ -190,11 +190,6 @@ Parameters:
           Fn::Equals:
             - ExistingVPC
             - ${VpcOption}
-  Password:
-    Type: String
-    AssociationProperty: ALIYUN::ECS::Instance::Password
-    Label: 密码
-    NoEcho: True
 Resources:
   # 新建vpc
   EcsVpc:
@@ -315,7 +310,7 @@ Resources:
             WantedBy=multi-user.target
             EOF
 
-            echo 'Password=${Password}' >> /root/application/docker_compose/.env.example
+            
             systemctl start docker-compose-app
           - RegionId:
               Ref: ALIYUN::Region
@@ -356,9 +351,4 @@ Metadata:
           - VSwitchCidrBlock
         Label:
           default: 可用区配置
-      - Parameters:
-          - Password
-        Label:
-          en: Software Configuration
-          zh-cn: 软件配置
       

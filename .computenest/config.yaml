@@ -36,133 +36,133 @@ Artifact:
       Url: 'resources/artifact_resources/docker_compose.tar'
   Artifact_2:
     ArtifactType: AcrImage
-    ArtifactName: langgenius-dify-api
+    ArtifactName: AcrImage-langgenius-dify-api
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_1.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_1.Tag}
       RepoType: Public
   Artifact_3:
     ArtifactType: AcrImage
-    ArtifactName: langgenius-dify-api
+    ArtifactName: AcrImage-langgenius-dify-api
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_2.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_2.Tag}
       RepoType: Public
   Artifact_4:
     ArtifactType: AcrImage
-    ArtifactName: langgenius-dify-web
+    ArtifactName: AcrImage-langgenius-dify-web
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_3.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_3.Tag}
       RepoType: Public
   Artifact_5:
     ArtifactType: AcrImage
-    ArtifactName: postgres
+    ArtifactName: AcrImage-postgres
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_4.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_4.Tag}
       RepoType: Public
   Artifact_6:
     ArtifactType: AcrImage
-    ArtifactName: redis
+    ArtifactName: AcrImage-redis
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_5.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_5.Tag}
       RepoType: Public
   Artifact_7:
     ArtifactType: AcrImage
-    ArtifactName: langgenius-dify-sandbox
+    ArtifactName: AcrImage-langgenius-dify-sandbox
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_6.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_6.Tag}
       RepoType: Public
   Artifact_8:
     ArtifactType: AcrImage
-    ArtifactName: ubuntu-squid
+    ArtifactName: AcrImage-ubuntu-squid
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_7.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_7.Tag}
       RepoType: Public
   Artifact_9:
     ArtifactType: AcrImage
-    ArtifactName: nginx
+    ArtifactName: AcrImage-nginx
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_8.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_8.Tag}
       RepoType: Public
   Artifact_10:
     ArtifactType: AcrImage
-    ArtifactName: semitechnologies-weaviate
+    ArtifactName: AcrImage-semitechnologies-weaviate
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_9.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_9.Tag}
       RepoType: Public
   Artifact_11:
     ArtifactType: AcrImage
-    ArtifactName: langgenius-qdrant
+    ArtifactName: AcrImage-langgenius-qdrant
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_10.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_10.Tag}
       RepoType: Public
   Artifact_12:
     ArtifactType: AcrImage
-    ArtifactName: pgvector-pgvector
+    ArtifactName: AcrImage-pgvector-pgvector
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_11.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_11.Tag}
       RepoType: Public
   Artifact_13:
     ArtifactType: AcrImage
-    ArtifactName: tensorchord-pgvecto-rs
+    ArtifactName: AcrImage-tensorchord-pgvecto-rs
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_12.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_12.Tag}
       RepoType: Public
   Artifact_14:
     ArtifactType: AcrImage
-    ArtifactName: chroma-core-chroma
+    ArtifactName: AcrImage-chroma-core-chroma
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_13.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_13.Tag}
       RepoType: Public
   Artifact_15:
     ArtifactType: AcrImage
-    ArtifactName: database-free
+    ArtifactName: AcrImage-database-free
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_14.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_14.Tag}
       RepoType: Public
   Artifact_16:
     ArtifactType: AcrImage
-    ArtifactName: coreos-etcd
+    ArtifactName: AcrImage-coreos-etcd
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_15.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_15.Tag}
       RepoType: Public
   Artifact_17:
     ArtifactType: AcrImage
-    ArtifactName: minio-minio
+    ArtifactName: AcrImage-minio-minio
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_16.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_16.Tag}
       RepoType: Public
   Artifact_18:
     ArtifactType: AcrImage
-    ArtifactName: milvusdb-milvus
+    ArtifactName: AcrImage-milvusdb-milvus
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_17.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_17.Tag}
       RepoType: Public
   Artifact_19:
     ArtifactType: AcrImage
-    ArtifactName: opensearchproject-opensearch
+    ArtifactName: AcrImage-opensearchproject-opensearch
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_18.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_18.Tag}
       RepoType: Public
   Artifact_20:
     ArtifactType: AcrImage
-    ArtifactName: opensearchproject-opensearch-dashboards
+    ArtifactName: AcrImage-opensearchproject-opensearch-dashboards
     ArtifactProperty:
       RepoName: ${AcrImageBuilder.AcrImage_19.RepoName}
       Tag: ${AcrImageBuilder.AcrImage_19.Tag}
