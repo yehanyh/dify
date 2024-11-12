@@ -1,7 +1,4 @@
 ROSTemplateFormatVersion: '2015-09-01'
-Description:
-  en: DockerCompose service template
-  zh-cn: DockerCompose服务模板
 Conditions:
   CreateVpcConditions:
     Fn::Equals:
@@ -281,7 +278,7 @@ Resources:
       CommandContent:
         Fn::Sub:
           - |
-            wget '{{ computenest::file::Alicloud-ComputeNest_dify-docker-compose }}' -O /root/application/docker_compose.tar
+            wget '{{ computenest::file::yehanyh_dify-docker-compose }}' -O /root/application/docker_compose.tar
             tar -xvf /root/application/docker_compose.tar -C /root/application
 
             cat > /etc/systemd/system/docker-compose-app.service <<EOF
