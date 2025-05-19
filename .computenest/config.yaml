@@ -44,7 +44,7 @@ Service:
   ServiceInfo:
     # 英文版可以再配置Locale为en-US的服务信息
   - Locale: zh-CN
-    Name: yehanyh/dify-psm5
+    Name: yehanyh/dify-6znd
     ShortDescription: Service description
     Image: 
       https://service-info-public.oss-cn-hangzhou.aliyuncs.com/1853370294850618/service-image/bfd30cc4-e959-4093-b5cb-77a05058b911.png
@@ -66,43 +66,43 @@ Artifact:
       CommandType: RunShellScript
       CommandContent: |-
         mkdir -p /root/application
-        mkdir -p "/root/application/docker/nginx"
-        if [ -e "/root/code/docker/nginx/https.conf.template" ]; then cp -r "/root/code/docker/nginx/https.conf.template" "/root/application/docker/nginx/"; fi
-        if [ -e "/root/code/docker/nginx/nginx.conf.template" ]; then cp -r "/root/code/docker/nginx/nginx.conf.template" "/root/application/docker/nginx/"; fi
-        mkdir -p "/root/application/docker/volumes/pgvector"
-        if [ -e "/root/code/docker/volumes/pgvector/data" ]; then cp -r "/root/code/docker/volumes/pgvector/data" "/root/application/docker/volumes/pgvector/"; fi
-        if [ -e "/root/code/docker/nginx/docker-entrypoint.sh" ]; then cp -r "/root/code/docker/nginx/docker-entrypoint.sh" "/root/application/docker/nginx/"; fi
-        mkdir -p "/root/application/docker/volumes/milvus"
-        if [ -e "/root/code/docker/volumes/milvus/etcd" ]; then cp -r "/root/code/docker/volumes/milvus/etcd" "/root/application/docker/volumes/milvus/"; fi
-        mkdir -p "/root/application/docker/volumes/pgvecto_rs"
-        if [ -e "/root/code/docker/volumes/pgvecto_rs/data" ]; then cp -r "/root/code/docker/volumes/pgvecto_rs/data" "/root/application/docker/volumes/pgvecto_rs/"; fi
-        mkdir -p "/root/application/docker/volumes/db"
-        if [ -e "/root/code/docker/volumes/db/data" ]; then cp -r "/root/code/docker/volumes/db/data" "/root/application/docker/volumes/db/"; fi
-        mkdir -p "/root/application/docker/ssrf_proxy"
-        if [ -e "/root/code/docker/ssrf_proxy/squid.conf.template" ]; then cp -r "/root/code/docker/ssrf_proxy/squid.conf.template" "/root/application/docker/ssrf_proxy/"; fi
-        if [ -e "/root/code/docker/nginx/conf.d" ]; then cp -r "/root/code/docker/nginx/conf.d" "/root/application/docker/nginx/"; fi
-        mkdir -p "/root/application/docker"
-        if [ -e "/root/code/docker/docker-compose.yaml" ]; then cp -r "/root/code/docker/docker-compose.yaml" "/root/application/docker/"; fi
         mkdir -p "/root/application/docker/volumes"
         if [ -e "/root/code/docker/volumes/weaviate" ]; then cp -r "/root/code/docker/volumes/weaviate" "/root/application/docker/volumes/"; fi
-        if [ -e "/root/code/docker/.env.example" ]; then cp -r "/root/code/docker/.env.example" "/root/application/docker/"; fi
+        mkdir -p "/root/application/docker/ssrf_proxy"
+        if [ -e "/root/code/docker/ssrf_proxy/squid.conf.template" ]; then cp -r "/root/code/docker/ssrf_proxy/squid.conf.template" "/root/application/docker/ssrf_proxy/"; fi
+        mkdir -p "/root/application/docker/nginx"
+        if [ -e "/root/code/docker/nginx/proxy.conf.template" ]; then cp -r "/root/code/docker/nginx/proxy.conf.template" "/root/application/docker/nginx/"; fi
         mkdir -p "/root/application/docker/volumes/opensearch"
         if [ -e "/root/code/docker/volumes/opensearch/data" ]; then cp -r "/root/code/docker/volumes/opensearch/data" "/root/application/docker/volumes/opensearch/"; fi
-        if [ -e "/root/code/docker/nginx/proxy.conf.template" ]; then cp -r "/root/code/docker/nginx/proxy.conf.template" "/root/application/docker/nginx/"; fi
+        mkdir -p "/root/application/docker/volumes/milvus"
+        if [ -e "/root/code/docker/volumes/milvus/minio" ]; then cp -r "/root/code/docker/volumes/milvus/minio" "/root/application/docker/volumes/milvus/"; fi
         if [ -e "/root/code/docker/volumes/chroma" ]; then cp -r "/root/code/docker/volumes/chroma" "/root/application/docker/volumes/"; fi
-        if [ -e "/root/code/docker/volumes/qdrant" ]; then cp -r "/root/code/docker/volumes/qdrant" "/root/application/docker/volumes/"; fi
-        mkdir -p "/root/application/docker/volumes/redis"
-        if [ -e "/root/code/docker/volumes/redis/data" ]; then cp -r "/root/code/docker/volumes/redis/data" "/root/application/docker/volumes/redis/"; fi
-        if [ -e "/root/code/docker/volumes/milvus/milvus" ]; then cp -r "/root/code/docker/volumes/milvus/milvus" "/root/application/docker/volumes/milvus/"; fi
-        mkdir -p "/root/application/docker/volumes/app"
-        if [ -e "/root/code/docker/volumes/app/storage" ]; then cp -r "/root/code/docker/volumes/app/storage" "/root/application/docker/volumes/app/"; fi
-        if [ -e "/root/code/docker/startupscripts" ]; then cp -r "/root/code/docker/startupscripts" "/root/application/docker/"; fi
-        if [ -e "/root/code/docker/ssrf_proxy/docker-entrypoint.sh" ]; then cp -r "/root/code/docker/ssrf_proxy/docker-entrypoint.sh" "/root/application/docker/ssrf_proxy/"; fi
-        if [ -e "/root/code/docker/volumes/opensearch/opensearch_dashboards.yml" ]; then cp -r "/root/code/docker/volumes/opensearch/opensearch_dashboards.yml" "/root/application/docker/volumes/opensearch/"; fi
         if [ -e "/root/code/docker/nginx/ssl" ]; then cp -r "/root/code/docker/nginx/ssl" "/root/application/docker/nginx/"; fi
+        if [ -e "/root/code/docker/volumes/opensearch/opensearch_dashboards.yml" ]; then cp -r "/root/code/docker/volumes/opensearch/opensearch_dashboards.yml" "/root/application/docker/volumes/opensearch/"; fi
+        if [ -e "/root/code/docker/ssrf_proxy/docker-entrypoint.sh" ]; then cp -r "/root/code/docker/ssrf_proxy/docker-entrypoint.sh" "/root/application/docker/ssrf_proxy/"; fi
         mkdir -p "/root/application/docker/volumes/sandbox"
         if [ -e "/root/code/docker/volumes/sandbox/dependencies" ]; then cp -r "/root/code/docker/volumes/sandbox/dependencies" "/root/application/docker/volumes/sandbox/"; fi
-        if [ -e "/root/code/docker/volumes/milvus/minio" ]; then cp -r "/root/code/docker/volumes/milvus/minio" "/root/application/docker/volumes/milvus/"; fi
+        if [ -e "/root/code/docker/volumes/qdrant" ]; then cp -r "/root/code/docker/volumes/qdrant" "/root/application/docker/volumes/"; fi
+        mkdir -p "/root/application/docker/volumes/db"
+        if [ -e "/root/code/docker/volumes/db/data" ]; then cp -r "/root/code/docker/volumes/db/data" "/root/application/docker/volumes/db/"; fi
+        mkdir -p "/root/application/docker/volumes/pgvector"
+        if [ -e "/root/code/docker/volumes/pgvector/data" ]; then cp -r "/root/code/docker/volumes/pgvector/data" "/root/application/docker/volumes/pgvector/"; fi
+        if [ -e "/root/code/docker/nginx/nginx.conf.template" ]; then cp -r "/root/code/docker/nginx/nginx.conf.template" "/root/application/docker/nginx/"; fi
+        if [ -e "/root/code/docker/volumes/milvus/milvus" ]; then cp -r "/root/code/docker/volumes/milvus/milvus" "/root/application/docker/volumes/milvus/"; fi
+        mkdir -p "/root/application/docker"
+        if [ -e "/root/code/docker/docker-compose.yaml" ]; then cp -r "/root/code/docker/docker-compose.yaml" "/root/application/docker/"; fi
+        if [ -e "/root/code/docker/nginx/docker-entrypoint.sh" ]; then cp -r "/root/code/docker/nginx/docker-entrypoint.sh" "/root/application/docker/nginx/"; fi
+        mkdir -p "/root/application/docker/volumes/pgvecto_rs"
+        if [ -e "/root/code/docker/volumes/pgvecto_rs/data" ]; then cp -r "/root/code/docker/volumes/pgvecto_rs/data" "/root/application/docker/volumes/pgvecto_rs/"; fi
+        mkdir -p "/root/application/docker/volumes/redis"
+        if [ -e "/root/code/docker/volumes/redis/data" ]; then cp -r "/root/code/docker/volumes/redis/data" "/root/application/docker/volumes/redis/"; fi
+        if [ -e "/root/code/docker/nginx/https.conf.template" ]; then cp -r "/root/code/docker/nginx/https.conf.template" "/root/application/docker/nginx/"; fi
+        if [ -e "/root/code/docker/.env.example" ]; then cp -r "/root/code/docker/.env.example" "/root/application/docker/"; fi
+        if [ -e "/root/code/docker/startupscripts" ]; then cp -r "/root/code/docker/startupscripts" "/root/application/docker/"; fi
+        if [ -e "/root/code/docker/volumes/milvus/etcd" ]; then cp -r "/root/code/docker/volumes/milvus/etcd" "/root/application/docker/volumes/milvus/"; fi
+        if [ -e "/root/code/docker/nginx/conf.d" ]; then cp -r "/root/code/docker/nginx/conf.d" "/root/application/docker/nginx/"; fi
+        mkdir -p "/root/application/docker/volumes/app"
+        if [ -e "/root/code/docker/volumes/app/storage" ]; then cp -r "/root/code/docker/volumes/app/storage" "/root/application/docker/volumes/app/"; fi
         cd /root/application
         cp docker/.env.example docker/.env
         sed -i 's/pull_policy: always/pull_policy: if_not_present/g' docker/docker-compose.yaml
